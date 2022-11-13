@@ -13,42 +13,42 @@
 
 const strawberry = {
   name: "A strawberry.",
-  price: 0.10,
+  price: 100,
   quantity: 0,
   productId: 100,
   image: "/images/susberry.png"
 };
 const potato = {
   name: "A potato.",
-  price: 0.20,
+  price: 200,
   quantity: 0,
   productId: 101,
   image: "/images/suspotato.png"
 };
 const radish = {
   name: "A radish.",
-  price: 0.15,
+  price: 150,
   quantity: 0,
   productId: 102,
   image: "/images/susradish.png"
 };
 const artichoke = {
   name: "An artichoke.",
-  price: 0.20,
+  price: 200,
   quantity: 0,
   productId: 103,
   image: "/images/susartichoke.png"
 };
 const banana = {
   name: "A banana.",
-  price: 0.05,
+  price: 50,
   quantity: 0,
   productId: 104,
   image: "/images/susbanana.png"
 };
 const cherry = {
   name: "A cherry.",
-  price: 20.00,
+  price: 2000.00,
   quantity: 0,
   productId: 105,
   image: "/images/suscherry.png"
