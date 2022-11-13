@@ -86,9 +86,10 @@ function getProduct(productId){
 
 function addProductToCart(productId){
   p = getProduct(productId);
-  if(!cart.includes(p)){
-    cart.push(p);
+  if(!cart.includes(p)){    
+    cart.push(p);    
   }
+  p.quantity += 1;
 }
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
@@ -144,7 +145,7 @@ function removeProductFromCart(productId){
 function cartTotal(){
   sum = 0;
   for(let i = 0; i < cart.length; i++){
-    sum += cart[i].price;
+    sum += (cart[i].quantity * cart[i].price);
   }
   return sum.toFixed(2);
 }
@@ -153,6 +154,12 @@ function cartTotal(){
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
+
+function emptyCart(){
+  for(let i = 0; i < cart.length; i++){
+    cart.pop();
+  }
+}
 
 /* Create a function called emptyCart that empties the products from the cart */
 

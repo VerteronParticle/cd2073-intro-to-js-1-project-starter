@@ -45,6 +45,11 @@ p {
 
 .products > div h3 {
     font-weight: 800;
+    text-align: center;
+}
+
+.products > div p {    
+    text-align: center;
 }
 
 .cart > div {
@@ -58,7 +63,10 @@ p {
 .checkout {
     margin-bottom: 4em;
 }
-
+.add-to-cart {
+    position: relative;
+    right: -15%;
+}
 button {
     border: 1px solid #ccc;
     background: #fff;
