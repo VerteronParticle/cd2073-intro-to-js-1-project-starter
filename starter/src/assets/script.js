@@ -76,6 +76,7 @@ const products = [
 
 const cart = [];
 
+//Function to retrieve product object based on product id.
 function getProduct(productId){
   for(let i = 0; i < products.length; i++){
     if(products[i].productId === productId){
@@ -86,10 +87,10 @@ function getProduct(productId){
 
 function addProductToCart(productId){
   p = getProduct(productId);
+  p.quantity += 1;
   if(!cart.includes(p)){    
     cart.push(p);    
-  }
-  p.quantity += 1;
+  }  
 }
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
@@ -111,7 +112,7 @@ function decreaseQuantity(productId){
   p = getProduct(productId);
   p.quantity -= 1;
   if(p.quantity === 0){
-    removeProductFromCart(productId); //     I could've passed in the whole object, but didn't because I wanted to stay.
+    removeProductFromCart(productId);     // I could've passed in the whole object, but didn't because I wanted to stay.
     for(let i = 0; i < cart.length; i++){ // generic. Using the whole object would mean that whatever called remove 
       if(cart[i].productId == productId){ // would have to have the whole object already, which seems too specific. -S
         cart.splice(i, 1);
@@ -143,7 +144,7 @@ function removeProductFromCart(productId){
 */
 
 function cartTotal(){
-  sum = 0;
+  let sum = 0;
   for(let i = 0; i < cart.length; i++){
     sum += (cart[i].quantity * cart[i].price);
   }
@@ -156,12 +157,18 @@ function cartTotal(){
 */
 
 function emptyCart(){
-  for(let i = 0; i < cart.length; i++){
+  const n = cart.length; //store length in a variable, so that 
+  for(let i = 0; i < n; i++){
     cart.pop();
   }
+  console.log(cart);
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
+
+function pay(amount){
+  return amount.toFixed(2) - cartTotal();  
+}
 
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
