@@ -13,6 +13,7 @@
 
 const strawberry = {
   name: "A strawberry.",
+  inStock: 10,
   price: 100,
   quantity: 0,
   productId: 100,
@@ -20,6 +21,7 @@ const strawberry = {
 };
 const potato = {
   name: "A potato.",
+  inStock: 20,
   price: 200,
   quantity: 0,
   productId: 101,
@@ -27,6 +29,7 @@ const potato = {
 };
 const radish = {
   name: "A radish.",
+  inStock: 15,
   price: 150,
   quantity: 0,
   productId: 102,
@@ -34,6 +37,7 @@ const radish = {
 };
 const artichoke = {
   name: "An artichoke.",
+  inStock: 20,
   price: 200,
   quantity: 0,
   productId: 103,
@@ -41,6 +45,7 @@ const artichoke = {
 };
 const banana = {
   name: "A banana.",
+  inStock: 99,
   price: 50,
   quantity: 0,
   productId: 104,
@@ -48,6 +53,7 @@ const banana = {
 };
 const cherry = {
   name: "A cherry.",
+  inStock: 5,
   price: 2000.00,
   quantity: 0,
   productId: 105,
@@ -157,7 +163,7 @@ function cartTotal(){
 */
 
 function emptyCart(){
-  const n = cart.length; //store length in a variable, so that 
+  const n = cart.length; 
   for(let i = 0; i < n; i++){
     cart.pop();
   }

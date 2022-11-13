@@ -11,9 +11,14 @@ body {
     margin: 0 auto;
     justify-content: center;
 }
+em {
+    color: white;
+    font-style: normal;
+}
 h1 {
     text-align: center;
     padding: 1em;
+    color: rgb(54, 21, 21)
 }
 h2 {
     padding: 1em 0 .5em;
@@ -26,12 +31,26 @@ h3 {
 p {
     padding-bottom: 1em;
 }
+.price-text{
+    color: lightgray;
+}
 .products-container{   
     
     padding: 2em;
 }
 .cart-container {
     display: flex;
+}
+.cart-header {
+    color: lightgray;
+}
+.cart-text {
+    color: gray;
+}
+.cart-item{
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
 }
 .checkout-container {
     max-width: 34em;
@@ -71,22 +90,28 @@ p {
 }
 
 .cart > div {
+    justify-content: center;
     border: 1px solid #ccc;
     margin: 1em;
     padding: 2em;
 }
 .checkout-container {
     background-image: linear-gradient(180deg, rgb(107, 104, 104), rgb(65, 44, 44));
-    max-width: 34em;
-    border-right: 30px solid white;
 }
 .checkout {
     margin-bottom: 4em;
 }
-.add-to-cart {
-    background-image: linear-gradient(180deg, rgb(107, 104, 104), rgb(65, 44, 44));    
+.cart-button {
+    background-image: linear-gradient(180deg, rgb(107, 104, 104), rgb(65, 44, 44));
+    color: white;
     position: relative;
     right: -15%;
+}
+.cart-item-button{
+    right: 0;
+}
+.empty {
+    right: 0;
 }
 button {
     border: 1px solid #ccc;
@@ -101,7 +126,8 @@ button.pay {
 }
 button:hover {
     background: rgb(93, 120, 118);
-    color: #fff;
+    font-weight: 500;
+    
     cursor: pointer;
 }
 

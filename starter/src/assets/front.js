@@ -9,8 +9,8 @@ function drawProducts() {
             <div data-productId='${element.productId}'>
                 <img src='${element.image}'>
                 <h3>${element.name}</h3>
-                <p>price: ${currencySymbol}${element.price}</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <p class="price-text">price: <em>${currencySymbol}${element.price}</em></p>
+                <button class="cart-button">Add to Cart</button>
             </div>
         `;
     });
@@ -27,21 +27,24 @@ function drawCart() {
         let itemTotal = element.price * element.quantity;
 
         cartItems += `
-            <div data-productId='${element.productId}'>
+            <div class="cart-item" data-productId='${element.productId}'>
                 <h3>${element.name}</h3>
-                <p>price: ${currencySymbol}${element.price}</p>
-                <p>quantity: ${element.quantity}</p>
-                <p>total: ${currencySymbol}${itemTotal}</p>
-                <button class="qup">+</button>
-                <button class="qdown">-</button>
-                <button class="remove">remove</button>
+                <p class="price-text">price: <em>${currencySymbol}${element.price}</em></p>
+                <p class="price-text">quantity: <em>${element.quantity}</em></p>
+                <p class="price-text">total: <em>${currencySymbol}${itemTotal}</em></p>
+                <button class="qup cart-button cart-item-button">+</button>
+                <button class="qdown cart-button cart-item-button">-</button>
+                <button class="remove cart-button cart-item-button">remove</button>
             </div>
-        `;
+        `;        
     });
+    cartEmpty = `
+            <p class="price-text">Cart Empty</p>
+        `;
     // use innerHTML so that cart products only drawn once
     cart.length
         ? (cartList.innerHTML = cartItems)
-        : (cartList.innerHTML = 'Cart Empty');
+        : (cartList.innerHTML = cartEmpty);
 }
 
 // Draws checkout
@@ -142,6 +145,7 @@ document.querySelector('.pay').addEventListener('click', (e) => {
 function dropCart(){
     let shoppingCart = document.querySelector('.empty-btn');
     let div = document.createElement("button");
+    div.classList.add("cart-button");
     div.classList.add("empty");
     div.innerHTML =`Empty Cart`;
     shoppingCart.append(div);
@@ -158,34 +162,34 @@ document.querySelector('.empty-btn').addEventListener('click', (e) => {
 /* End all items from cart */
 
 /* Begin currency converter */
-// function currencyBuilder(){
-//     let currencyPicker = document.querySelector('.currency-selector');
-//     let select = document.createElement("select");
-//     select.classList.add("currency-select");
-//     select.innerHTML = `<option value="USD">USD</option>
-//                         <option value="EUR">EUR</option>
-//                         <option value="YEN">YEN</option>`;
-//     currencyPicker.append(select);
-// }
-// currencyBuilder();
+function currencyBuilder(){
+    let currencyPicker = document.querySelector('.currency-selector');
+    let select = document.createElement("select");
+    select.classList.add("currency-select");
+    select.innerHTML = `<option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="YEN">YEN</option>`;
+    currencyPicker.append(select);
+}
+currencyBuilder();
 
-// document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
-//     switch(event.target.value){
-//         case 'EUR':
-//             currencySymbol = '€';
-//             break;
-//         case 'YEN':
-//             currencySymbol = '¥';
-//             break;
-//         default:
-//             currencySymbol = '$';
-//             break;
-//      }
+document.querySelector('.currency-select').addEventListener('change', function handleChange(event) {
+    switch(event.target.value){
+        case 'EUR':
+            currencySymbol = '€';
+            break;
+        case 'YEN':
+            currencySymbol = '¥';
+            break;
+        default:
+            currencySymbol = '$';
+            break;
+    }
 
-//     currency(event.target.value);
-//     drawProducts();
-//     drawCart();
-//     drawCheckout();
-// });
+    currency(event.target.value);
+    drawProducts();
+    drawCart();
+    drawCheckout();
+});
 /* End currency converter */
 /* End standout suggestions */
