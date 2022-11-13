@@ -11,56 +11,56 @@
    - image: picture of product (url string)
 */
 
-const cherry = {
-  name: "A cherry.",
+const strawberry = {
+  name: "A strawberry.",
   price: 0.10,
   quantity: 0,
   productId: 100,
-  image: "/images/cherry.jpg"
-};
-const orange = {
-  name: "An Orange.",
-  price: 0.20,
-  quantity: 0,
-  productId: 101,
-  image: "/images/orange.jpg"
-};
-const strawberry = {
-  name: "A strawberry.",
-  price: 0.15,
-  quantity: 0,
-  productId: 102,
-  image: "/images/strawberry.jpg"
+  image: "/images/susberry.png"
 };
 const potato = {
   name: "A potato.",
   price: 0.20,
   quantity: 0,
-  productId: 103,
-  image: "/images/potato.png"
+  productId: 101,
+  image: "/images/suspotato.png"
 };
-const angrypotato = {
-  name: "An angry potato.",
+const radish = {
+  name: "A radish.",
+  price: 0.15,
+  quantity: 0,
+  productId: 102,
+  image: "/images/susradish.png"
+};
+const artichoke = {
+  name: "An artichoke.",
+  price: 0.20,
+  quantity: 0,
+  productId: 103,
+  image: "/images/susartichoke.png"
+};
+const banana = {
+  name: "A banana.",
   price: 0.05,
   quantity: 0,
   productId: 104,
-  image: "/images/angrypotato.png"
+  image: "/images/susbanana.png"
 };
-const happypotato = {
-  name: "A happy potato!",
+const cherry = {
+  name: "A cherry.",
   price: 20.00,
   quantity: 0,
   productId: 105,
-  image: "/images/happypotato.png"
+  image: "/images/suscherry.png"
 };
 
-const products = [
-  cherry,
-  orange,
+const products = [  
   strawberry,
   potato,
-  angrypotato,
-  happypotato
+  radish,
+  artichoke,
+  banana,
+  cherry
 ];
 
 /* Images provided in /images folder. All images from Unsplash.com
