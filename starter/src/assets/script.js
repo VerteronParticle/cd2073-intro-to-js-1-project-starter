@@ -67,6 +67,9 @@ const products = [
    - cherry.jpg by Mae Mu
    - orange.jpg by Mae Mu
    - strawberry.jpg by Allec Gomes
+   - potato.png by Sean x DALL-E 2
+   - angrypotato.png by Sean x DALL-E 2
+   - happypotato.png by Sean x DALL-E 2
 */
 
 /* Declare an empty array named cart to hold the items in the cart */
