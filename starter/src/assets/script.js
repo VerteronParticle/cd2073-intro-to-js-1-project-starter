@@ -86,7 +86,7 @@ function getProduct(productId){
 }
 
 function addProductToCart(productId){
-  p = getProduct(productId);
+  let p = getProduct(productId);
   p.quantity += 1;
   if(!cart.includes(p)){    
     cart.push(p);    
@@ -109,7 +109,7 @@ function increaseQuantity(productId){
 */
 
 function decreaseQuantity(productId){
-  p = getProduct(productId);
+  let p = getProduct(productId);
   p.quantity -= 1;
   if(p.quantity === 0){
     removeProductFromCart(productId);     // I could've passed in the whole object, but didn't because I wanted to stay.
@@ -128,7 +128,7 @@ function decreaseQuantity(productId){
 */
 
 function removeProductFromCart(productId){
-  p = getProduct(productId);
+  let p = getProduct(productId);
   p.quantity = 0;
   for(let i = 0; i < cart.length; i++){
     if(cart[i].productId == productId){
