@@ -11,13 +11,18 @@
    - image: picture of product (url string)
 */
 
-//Currencies.
+//Currencies. -S
 
 const symbols = {
   usd: 1.0000,
   eur: 0.9965,
   yen: 139.56
 }
+
+//current balance so that 'pay' at least partially makes sense.
+currentBalance = 0
+
+//product object literals. -S
 
 const strawberry = {
   name: "A strawberry.",
@@ -74,6 +79,8 @@ const cherry = {
   image: "/images/suscherry.png"
 };
 
+// products array. -S
+
 const products = [  
   strawberry,
   potato,
@@ -93,7 +100,6 @@ const products = [
 */
 
 /* Declare an empty array named cart to hold the items in the cart */
-
 const cart = [];
 
 //Function to retrieve product object based on product id.
@@ -104,8 +110,6 @@ function getProduct(productId){
     }
   }
 }
-
-
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
@@ -138,15 +142,14 @@ function increaseQuantity(productId){
 function decreaseQuantity(productId){
   let p = getProduct(productId);
   p.quantity -= 1;
-  if(p.quantity === 0){
-    removeProductFromCart(productId);     // I could've passed in the whole object, but didn't because I wanted to stay.
-    for(let i = 0; i < cart.length; i++){ // generic. Using the whole object would mean that whatever called remove 
-      if(cart[i].productId == productId){ // would have to have the whole object already, which seems too specific. -S
-        cart.splice(i, 1);
-      }
+  if(p.quantity === 0){    
+    removeProductFromCart(productId);
+                                          
+                                          
+        
     }
-  }
 }
+
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
@@ -173,6 +176,7 @@ function cartTotal(){
   for(let i = 0; i < cart.length; i++){
     sum += (cart[i].quantity * cart[i].price);
   }
+  balance = sum
   return parseFloat(sum.toFixed(2));
 }
 
@@ -190,7 +194,11 @@ function emptyCart(){
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount){
-  return amount.toFixed(2) - cartTotal();  
+  if (amount < balance){
+    balance -= amount;
+    return -balance;
+  }
+  return amount - balance
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/

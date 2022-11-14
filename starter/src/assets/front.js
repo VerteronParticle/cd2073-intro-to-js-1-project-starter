@@ -122,25 +122,20 @@ document.querySelector('.pay').addEventListener('click', (e) => {
     // Else request additional funds
     if (cashReturn >= 0) {
         div.innerHTML = `
-            <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Cash Returned: ${currencySymbol}${cashReturn}</p>
-            <p>Thank you!</p>
+            <p class="price-text">Cash Received: <em>${currencySymbol}${amount}</em></p>
+            <p class="price-text">Cash Returned: <em>${currencySymbol}${cashReturn}</em></p>
+            <p><em>Thank you!</em></p>
         `;
     } else {
         // reset cash field for next entry
         document.querySelector('.received').value = '';
-        // I changed the sign on cashReturn because it was annoying me. -S
-        // I don't ever see negative numbers this way, in the wild.
-        // I don't see pages that let you just decide you paid for 
-        // everything either, so. Whatever. I like it better this way.
         div.innerHTML = `
-            <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Remaining Balance: ${-cashReturn}$</p>
-            <p>Please pay additional amount.</p>
+            <p class="price-text">Cash Received: ${currencySymbol}${amount}</p>
+            <p class="price-warning">Remaining Balance: ${-cashReturn}$</p>
+            <p class="price-warning">Please pay the additional amount. >:(</p>
             <hr/>
         `;
     }
-
     paymentSummary.append(div);
 });
 
