@@ -129,6 +129,10 @@ document.querySelector('.pay').addEventListener('click', (e) => {
     } else {
         // reset cash field for next entry
         document.querySelector('.received').value = '';
+        // I changed the sign on cashReturn because it was annoying me. -S
+        // I don't ever see negative numbers this way, in the wild.
+        // I don't see pages that let you just decide you paid for 
+        // everything either, so. Whatever. I like it better this way.
         div.innerHTML = `
             <p>Cash Received: ${currencySymbol}${amount}</p>
             <p>Remaining Balance: ${-cashReturn}$</p>
