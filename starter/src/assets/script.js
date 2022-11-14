@@ -1,17 +1,4 @@
-/* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
-
-// I moved this below all the product literals. -S
-
-/* Create 3 or more product objects using object literal notation 
-   Each product should include five properties
-   - name: name of product (string)
-   - price: price of product (number)
-   - quantity: quantity in cart should start at zero (number)
-   - productId: unique id for the product (number)
-   - image: picture of product (url string)
-*/
-
-//Currencies. -S
+//Currency conversion lookup. -S
 
 const symbols = {
   usd: 1.0000,
@@ -22,7 +9,7 @@ const symbols = {
 //current balance so that 'pay' at least partially makes sense.
 currentBalance = 0
 
-//product object literals. -S
+// product object literals containing important data.
 
 const strawberry = {
   name: "A strawberry.",
@@ -117,7 +104,10 @@ function getProduct(productId){
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId){
+  //get product
   let p = getProduct(productId);
+  //increase quantity no matter what, but if it's not in there,
+  //put it in there.
   p.quantity += 1;
   if(!cart.includes(p)){    
     cart.push(p);    
@@ -133,29 +123,16 @@ function increaseQuantity(productId){
   getProduct(productId).quantity += 1;
 }
 
-/* Create a function named decreaseQuantity that takes in the productId as an argument
-  - decreaseQuantity should get the correct product based on the productId
-  - decreaseQuantity should decrease the quantity of the product
-  - if the function decreases the quantity to 0, the product is removed from the cart
-*/
-
 function decreaseQuantity(productId){
   let p = getProduct(productId);
+  //decrease quantity no matter what. if it's zero, remove it from the 
+  //cart.
   p.quantity -= 1;
   if(p.quantity === 0){    
     removeProductFromCart(productId);
-                                          
-                                          
-        
-    }
+  }
 }
 
-
-/* Create a function named removeProductFromCart that takes in the productId as an argument
-  - removeProductFromCart should get the correct product based on the productId
-  - removeProductFromCart should update the product quantity to 0
-  - removeProductFromCart should remove the product from the cart
-*/
 function removeProductFromCart(productId){
   let p = getProduct(productId);
   p.quantity = 0;
@@ -170,10 +147,12 @@ function removeProductFromCart(productId){
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
-
 function cartTotal(){
+  //calculate the grand total from the items in the cart.
   let sum = 0;
   for(let i = 0; i < cart.length; i++){
+    //add the quantity * the price of each item in the cart
+    //to the sum.
     sum += (cart[i].quantity * cart[i].price);
   }
   balance = sum
@@ -182,7 +161,10 @@ function cartTotal(){
 
 /* Create a function called emptyCart that empties the products from the cart */
 function emptyCart(){
+  //save the length in variable, so you don't lose your spot when
+  //other indexes are missing.  
   const n = cart.length; 
+  //remove everything from the cart.
   for(let i = 0; i < n; i++){
     cart.pop();
   }
@@ -194,10 +176,14 @@ function emptyCart(){
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount){
+  //I improved this idea so that the balance can be paid down over time.  
+  //if the amount being paid is less than the balance, subtract amount,
+  //return negative number.
   if (amount < balance){
     balance -= amount;
     return -balance;
   }
+  //otherwise just return what's coming back to the customer.
   return amount - balance
 }
 
@@ -205,6 +191,7 @@ function pay(amount){
 
 
 function currency(currencyType){
+  //call convert() against KV pairs from the symbols lookup.
   switch(currencyType){
     case 'EUR':
       convert(symbols.eur);  
@@ -218,6 +205,7 @@ function currency(currencyType){
   }
 }
 
+//function to convert currency values.
 function convert(symbol){
   for(let i = 0; i < products.length; i++){    
     products[i].price = (products[i].basePrice * symbol).toFixed(2)
