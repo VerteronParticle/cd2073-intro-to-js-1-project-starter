@@ -14,31 +14,30 @@
 </head>
 <body>
     <h1>Sean's Completely Safe Item Bazaar</h1>
+    <h2 class="cart-header">Your Stuff</h2>
+            <div class="empty-btn"></div>
+            <div class="cart"></div>
     <div class="shopping-cart">
         
-        
-        <div class="cart-container">
-            <div class="products-container">
-                <h2>Things that seem safe</h2>
-                <div class="products"></div>
-                <h2 class="cart-header">Your Stuff</h2>
-                <div class="empty-btn"></div>
-                <div class="cart"></div>
+        <div class="products-container">
+            <h2>Things that seem safe</h2>
+            <div class="products"></div>
+            
+        </div>
+        <div class="checkout-container">
+            <div class="currency-selector"></div>
+            <h2 class="checkout-text">Checkout</h2>
+            <div class="checkout">
+                <div class="cart-total checkout-light-text"></div>
+                <form>
+                    <label class="checkout-light-text price-text">Enter Cash Received:</label>
+                    <input class="received" type="text">
+                    <button class="pay">Submit</button> 
+                </form>
+                <h3 class="checkout-text">Receipt</h3>
+                <div class="pay-summary"></div>
             </div>
-            <div class="checkout-container">
-                <div class="currency-selector"></div>
-                <h2 class="checkout-text">Checkout</h2>
-                <div class="checkout">
-                    <div class="cart-total checkout-light-text"></div>
-                    <form>
-                        <label class="checkout-light-text price-text">Enter Cash Received:</label>
-                        <input class="received" type="text">
-                        <button class="pay">Submit</button> 
-                    </form>
-                    <h3 class="checkout-text">Receipt</h3>
-                    <div class="pay-summary"></div>
-                </div>
-            </div>
+        </div>
         </div>
     </div>
 </body>
