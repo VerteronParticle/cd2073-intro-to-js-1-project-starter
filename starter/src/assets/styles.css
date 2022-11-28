@@ -39,12 +39,8 @@ p {
     font-weight: 800;
     color:rgb(85, 3, 3);
 }
-.products-container{   
-    
+.products-container{    
     padding: 2em;
-}
-.cart-container {
-    
 }
 .cart-header {
     color: lightgray;
