@@ -1,4 +1,4 @@
-//Currency conversion lookup. -S
+//Currency conversion lookup.
 
 const symbols = {
   usd: 1.0000,
@@ -63,7 +63,7 @@ const cherry = {
   image: "/images/suscherry.png"
 };
 
-// products array. -S
+// products array.
 
 const products = [  
   strawberry,
