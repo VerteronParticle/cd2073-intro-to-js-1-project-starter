@@ -39,7 +39,7 @@ function drawCart() {
         `;        
     });
     cartEmpty = `
-            <p class="price-text">Cart Empty</p>
+            <p class="price-text">Cart Empty! :(</p>
         `;
     // use innerHTML so that cart products only drawn once
     cart.length
