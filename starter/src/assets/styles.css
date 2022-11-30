@@ -37,6 +37,7 @@ p {
     padding-bottom: 1em;
 }
 .price-text{
+    padding-top: 0.5em;
     color: lightgray;
 }
 .price-warning{
