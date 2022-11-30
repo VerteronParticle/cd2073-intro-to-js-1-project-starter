@@ -3,8 +3,12 @@
     padding: 0;
     margin: 0;
 }
+html {
+    height: 100vh;
+}
 body {
     background-image: linear-gradient(180deg, rgb(107, 104, 104), rgb(65, 44, 44));
+    
 }
 .shopping-cart {
     width: 100%;
@@ -43,6 +47,7 @@ p {
     padding: 2em;
 }
 .cart-header {
+    margin-left: auto;
     color: lightgray;
 }
 .cart-text {
