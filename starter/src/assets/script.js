@@ -5,10 +5,7 @@ const symbols = {
   eur: 0.9965,
   yen: 139.56
 }
-
-//current balance so that 'pay' at least partially makes sense.
-currentBalance = 0
-
+let balance = 0
 // product object literals containing important data.
 
 const strawberry = {
@@ -155,7 +152,7 @@ function cartTotal(){
     //to the sum.
     sum += (cart[i].quantity * cart[i].price);
   }
-  balance = sum
+  balance = sum;
   return parseFloat(sum.toFixed(2));
 }
 
@@ -168,7 +165,6 @@ function emptyCart(){
   for(let i = 0; i < n; i++){
     cart.pop();
   }
-  console.log(cart);
 }
 
 /* Create a function named pay that takes in an amount as an argument
